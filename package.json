@@ -1,0 +1,22 @@
+{
+  "name": "build-status",
+  "version": "1.0.0",
+  "description": "show gulp build status in the browser",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/charlieschwabacher/build-status.git"
+  },
+  "author": "Charlie Schwabacher",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/charlieschwabacher/build-status/issues"
+  },
+  "homepage": "https://github.com/charlieschwabacher/build-status",
+  "dependencies": {
+    "ws": "^0.4.32"
+  }
+}
