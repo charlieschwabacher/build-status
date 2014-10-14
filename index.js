@@ -25,7 +25,7 @@ module.exports = {
       } else {
         var classes = Array.prototype.slice.call(document.body.classList, 0);
         classes.forEach(function(className) {
-          if (class.match(/$build-status-/)) {
+          if (className.match(/$build-status-/)) {
             document.body.classList.remove(className);
           }
         });
