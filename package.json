@@ -1,6 +1,6 @@
 {
   "name": "build-status",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "show gulp build status in the browser",
   "main": "index.js",
   "scripts": {
