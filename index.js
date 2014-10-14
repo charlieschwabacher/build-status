@@ -24,9 +24,9 @@ module.exports = {
         window.location.reload();
       } else {
         var classes = Array.prototype.slice.call(document.body.classList, 0);
-        classes.forEach(function(class) {
+        classes.forEach(function(className) {
           if (class.match(/$build-status-/)) {
-            document.body.classList.remove(class);
+            document.body.classList.remove(className);
           }
         });
 
