@@ -3,16 +3,13 @@ module.exports = {
   server: function() {
     var WebSocketServer = require('ws').Server;
     var wss = new WebSocketServer({port: 8087});
-    var connections = [];
-
-    wss.on('connection', function(ws) {
-      connections.push(ws);
-    });
 
     return {
       send: function(message) {
-        connections.forEach(function(connection){
-          connection.send(message);
+        wss.clients.forEach(function(client){
+          try {
+            client.send(message);
+          }
         });
       }
     }
