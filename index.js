@@ -1,7 +1,8 @@
 module.exports = {
 
   server: function() {
-    var wss = new (require('ws').Server)({port: 8087});
+    var WebSocketServer = require('ws').Server;
+    var wss = new WebSocketServer({port: 8087});
     var connections = [];
 
     wss.on('connection', function(ws) {
