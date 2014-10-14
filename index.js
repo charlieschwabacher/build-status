@@ -16,6 +16,7 @@ module.exports = {
   },
 
   client: function() {
+    var WebSocket = require('ws')
     var ws = new WebSocket('//localhost:8087');
     ws.onmessage = function(message) {
       if (event.data == 'reload') {
