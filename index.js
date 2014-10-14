@@ -9,7 +9,7 @@ module.exports = {
         wss.clients.forEach(function(client){
           try {
             client.send(message);
-          }
+          } catch (e) {}
         });
       }
     }
