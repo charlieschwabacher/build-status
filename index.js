@@ -1,7 +1,7 @@
 module.exports = {
 
   server: function() {
-    var wss = new require('ws').Server({port: 8087});
+    var wss = new (require('ws').Server)({port: 8087});
     var connections = [];
 
     wss.on('connection', function(ws) {
