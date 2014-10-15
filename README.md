@@ -1,11 +1,9 @@
 build-status
 ============
 
-show gulp build status in the browser
+Use websockets to show gulp build status in the browser.
 
-Include the client js in your page, and the server js in your Gulpfile to
-send messages to the client indicating that assets are building or have errors,
-and to autoreload once a build is done.
+`npm install --save-dev build-status`
 
 in your gulpfile:
 
@@ -24,6 +22,9 @@ gulp.task 'build', ->
     .on 'error', -> statusServer.send 'error'
     .pipe gulp.dest './public/'
     .on 'end', -> statusServer.send 'done'
+
+gulp.task 'default', ->
+  gulp.watch 'scripts/**', ['build']
 ```
 
 in your client script:
@@ -31,3 +32,7 @@ in your client script:
 ```coffeescript
 (require 'build-status').client()
 ```
+
+This will add 'build-status-building' and 'build-status-error' classes to the
+body while assets build or have errors, and refresh the page after builds
+complete.
