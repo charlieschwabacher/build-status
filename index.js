@@ -3,10 +3,12 @@ module.exports = {
   server: function() {
     var WebSocketServer = require('ws').Server;
     var wss = new WebSocketServer({port: 8087});
-    var lastMessage = '';
+    var lastMessage = 'done';
 
     wss.on('connection', function(ws) {
-      ws.send(lastMessage);
+      if (lastMessage != 'done') {
+        ws.send(lastMessage);
+      };
     });
 
     return {
@@ -25,9 +27,9 @@ module.exports = {
     var WebSocket = require('ws');
     var ws = new WebSocket('ws://localhost:8087');
     ws.onmessage = function(event) {
-      if (event.data == 'reload') {
+      if (event.data == 'done') {
         window.location.reload();
-      } else if (event.data) {
+      } else {
         var classes = Array.prototype.slice.call(document.body.classList, 0);
         classes.forEach(function(className) {
           if (className.match(/$build-status-/)) {
