@@ -18,7 +18,7 @@ module.exports = {
   client: function() {
     var WebSocket = require('ws');
     var ws = new WebSocket('ws://localhost:8087');
-    ws.onmessage = function(message) {
+    ws.onmessage = function(event) {
       if (event.data == 'reload') {
         window.location.reload();
       } else {
@@ -29,7 +29,7 @@ module.exports = {
           }
         });
 
-        document.body.classList.add('build-status-' + message);
+        document.body.classList.add('build-status-' + event.data);
       }
     };
   }
