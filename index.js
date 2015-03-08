@@ -24,7 +24,6 @@ module.exports = {
   },
 
   client: function() {
-    var WebSocket = require('ws');
     var ws = new WebSocket('ws://localhost:8087');
     ws.onmessage = function(event) {
       if (event.data == 'done') {
